@@ -11,7 +11,7 @@ function HomePage() {
     const fetchSkyboxStyles = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5002/api/skybox/getSkyboxStyles"
+          "https://backend.blockadelabs.com/api/v1/skybox/styles?api_key=I15XptG5KjIwn3DzuLDvBTySrItwIPArVE1KyQb6OghUDeAkT9C8liWrcTXk"
         );
         setSkyboxStyles(response.data);
       } catch (err) {

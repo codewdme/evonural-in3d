@@ -35,10 +35,11 @@ function PromptForm({ styleId }: { styleId: string }) {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5002/api/skybox/generateSkybox",
+        `https://backend.blockadelabs.com/api/v1/skybox?api_key=I15XptG5KjIwn3DzuLDvBTySrItwIPArVE1KyQb6OghUDeAkT9C8liWrcTXk`,
         {
-          prompt,
-          skybox_style_id: styleId,
+          prompt: formData.prompt,
+          skybox_style_id: Number(styleId) || 67,
+          negative_text: "negative text example",
         }
       );
       console.log(response);
@@ -46,7 +47,6 @@ function PromptForm({ styleId }: { styleId: string }) {
       console.log(e);
     }
 
-    console.log("submit");
     setLoading(false);
   };
   return (
