@@ -1,4 +1,5 @@
 "use client";
+import { Suspense } from "react";
 import PromptForm from "@/components/PromptForm";
 import SceneViewer from "@/components/SceneViewer";
 import { useSearchParams } from "next/navigation";
@@ -15,7 +16,9 @@ function SceneView() {
 
   return (
     <div>
-      <SceneViewer imageUrl={mainImg} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <SceneViewer imageUrl={mainImg} />
+      </Suspense>
       <PromptForm styleId={style_id} />
     </div>
   );
