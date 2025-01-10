@@ -1,11 +1,14 @@
+"use client";
 import SceneView from "@/components/pages/scene-view/SceneView";
 
-import React from "react";
+import React, { Suspense } from "react";
 
 function page() {
   return (
     <div>
-      <SceneView />
+      <Suspense fallback={<div>Loading...</div>}>
+        <SceneView />
+      </Suspense>
     </div>
   );
 }
