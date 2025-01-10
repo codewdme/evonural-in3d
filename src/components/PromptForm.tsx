@@ -8,7 +8,7 @@ import { ChevronDownIcon } from "@heroicons/react/16/solid";
 import { Field, Label, Switch } from "@headlessui/react";
 import axios from "axios";
 
-function PromptForm() {
+function PromptForm({ styleId }: { styleId: string }) {
   const options: string[] = ["Create", "Remix", "Edit", "3D"];
   const renderModels = [
     "M3 Detailed Render",
@@ -38,7 +38,7 @@ function PromptForm() {
         "http://localhost:5002/api/skybox/generateSkybox",
         {
           prompt,
-          skybox_style_id: formData.prompt,
+          skybox_style_id: styleId,
         }
       );
       console.log(response);

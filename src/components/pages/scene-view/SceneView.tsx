@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 function SceneView() {
   const params = useSearchParams();
   const img = params.get("img_url") || "";
+  const style_id = params.get("styleId") || "";
   const [mainImg, setMainImg] = useState("");
   useEffect(() => {
     setMainImg(img);
@@ -15,7 +16,7 @@ function SceneView() {
   return (
     <div>
       <SceneViewer imageUrl={mainImg} />
-      <PromptForm />
+      <PromptForm styleId={style_id} />
     </div>
   );
 }
